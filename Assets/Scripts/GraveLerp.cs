@@ -16,6 +16,6 @@ public class GraveLerp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpotLight.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time, 1));
+        //SpotLight.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time, 1));
     }
 }
