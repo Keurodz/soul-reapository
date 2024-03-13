@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2416811104667586171}
   - component: {fileID: 8390647268802217051}
   - component: {fileID: 1897401943721637632}
+  - component: {fileID: 8016435982084960847}
   m_Layer: 0
   m_Name: AngelDeath
   m_TagString: Untagged
@@ -4909,3 +4910,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8016435982084960847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134849404007576970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632a90c05d600064c85284703c0e6753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 3

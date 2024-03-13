@@ -20,10 +20,9 @@ public class AngelHit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("SwipeAttack"))
+        if (other.CompareTag("ReaperProjectile") || other.CompareTag("SwipeAttack"))
         {
             DestroyAngel();
-
         }
     }
 

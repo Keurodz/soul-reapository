@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - SwipeAttack
+  - ReaperProjectile
+  - Spirit
+  - Enemy
   layers:
   - Default
   - TransparentFX
