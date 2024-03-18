@@ -6,6 +6,8 @@ public class SpiritHit : MonoBehaviour
 {
     public GameObject spiritDeath;
 
+    public AudioClip spiritSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,9 @@ public class SpiritHit : MonoBehaviour
         //Increment points / do something with level manager
 
         // spawn death particles
-        //Instantiate(spiritDeath, transform.position, transform.rotation);
+        Instantiate(spiritDeath, transform.position, transform.rotation);
+
+        AudioSource.PlayClipAtPoint(spiritSFX, transform.position);
 
         // destroy angel
         gameObject.SetActive(false);
