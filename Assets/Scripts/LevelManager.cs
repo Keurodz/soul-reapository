@@ -62,6 +62,31 @@ public class LevelManager : MonoBehaviour
         scoreText.text = totalScore.ToString("Score: " + totalScore);
     }
 
+
+    public void LevelBeat()
+    {
+        isGameOver = true;
+        gameText.text = "YOU WIN!";
+        gameText.gameObject.SetActive(true);
+
+        if (endSFXPlayed == false)
+        {
+            endSFXPlayed = true;
+            AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
+        }
+
+
+        if (!string.IsNullOrEmpty(nextLevel))
+        {
+            Invoke("LoadNextLevel", 2);
+        }
+
+    }
+
+    public void IncrementScore()
+    {
+        totalScore++;
+    }
     /*
     public void LevelLost()
     {

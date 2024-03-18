@@ -40,4 +40,9 @@ public class PickupBehavior : MonoBehaviour
 
         //}
     }
+
+    private void OnDestroy()
+    {
+        LevelManager.totalScore += 1;
+    }
 }
