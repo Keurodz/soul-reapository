@@ -8,6 +8,8 @@ TagManager:
   - ReaperProjectile
   - Spirit
   - Enemy
+  - EnemyWanderpoint
+  - Pupil
   layers:
   - Default
   - TransparentFX
