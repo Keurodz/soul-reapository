@@ -16,7 +16,7 @@ public class SpiritHover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tempPos.y +=  Mathf.Sin(Time.fixedTime) * 0.01f;
+        tempPos.y +=  Mathf.Sin(Time.deltaTime) * 0.01f;
         transform.position = tempPos + Vector3.up;
     }
 }
