@@ -97,7 +97,7 @@ public class LevelManager : MonoBehaviour
         if (endSFXPlayed == false)
         {
             endSFXPlayed = true;
-            AudioSource.PlayClipAtPoint(gameOverClipSFX, Camera.main.transform.position);
+           AudioSource.PlayClipAtPoint(gameOverClipSFX, Camera.main.transform.position);
         }
         
 
