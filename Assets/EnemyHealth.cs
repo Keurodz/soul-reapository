@@ -50,7 +50,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            TakeDamage(10);
+            TakeDamage(25);
         }
     }
 }

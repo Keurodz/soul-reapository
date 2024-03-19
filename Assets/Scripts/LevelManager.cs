@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
             }
             else if (PlayerHealth.currentHealth <= 0)
             {
-                //LevelLost();
+                LevelLost();
             }
 
             SetScoreText();
@@ -87,7 +87,7 @@ public class LevelManager : MonoBehaviour
     {
         totalScore++;
     }
-    /*
+    
     public void LevelLost()
     {
         isGameOver = true;
@@ -104,37 +104,15 @@ public class LevelManager : MonoBehaviour
         Invoke("LoadCurrentLevel", 2);
     }
 
-
-    public void LevelBeat()
-    {
-        isGameOver = true;
-        gameText.text = "YOU WIN!";
-        gameText.gameObject.SetActive(true);
-
-        if (endSFXPlayed == false)
-        {
-            endSFXPlayed = true;
-            AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
-        }
-        
-
-        if (!string.IsNullOrEmpty(nextLevel))
-        {
-            Invoke("LoadNextLevel", 2);
-        }
-
-    }
-    */
-
     /*
     void LoadNextLevel()
     {
         SceneManager.LoadScene(nextLevel);
     }
-
+    */
     void LoadCurrentLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    */
+    
 }
