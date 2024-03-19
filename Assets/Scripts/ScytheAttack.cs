@@ -23,8 +23,16 @@ public class ScytheAttack : MonoBehaviour
             /*GameObject projectile = Instantiate(attackPrefab,
                 transform.position + transform.forward, transform.rotation) as GameObject;*/
             anim.SetTrigger("Swing");
-
+            GameObject swingRadius = transform.Find("SwingRadius").gameObject;
+            swingRadius.SetActive(true);
             AudioSource.PlayClipAtPoint(swipeSFX, transform.position);
+            Invoke("StopSwing", 1f);
         }
+    }
+
+    void StopSwing()
+    {
+        GameObject swingRadius = transform.Find("SwingRadius").gameObject;
+        swingRadius.SetActive(false);
     }
 }
