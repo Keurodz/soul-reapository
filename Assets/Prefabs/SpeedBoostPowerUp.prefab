@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 5
   lootSFX: {fileID: 8300000, guid: 9a9a7d87c9df66a42bf94a83999c2b6c, type: 3}
+  uiIcon: {fileID: 0}
 --- !u!114 &4125473088183399463
 MonoBehaviour:
   m_ObjectHideFlags: 0

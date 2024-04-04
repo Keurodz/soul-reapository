@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpeedLoot : MonoBehaviour
 {
     public float speedMultiplier = 1.5f;
     public AudioClip lootSFX;
+    public Image boostIconUI;
 
     public static bool boostActive = false;
     public static float boostDuration = 5;
 
     private float originalSpeed;
+    private Color iconOgColor;
 
     // Start is called before the first frame update
     void Start()
     {
+        boostIconUI = GameObject.FindGameObjectWithTag("SpeedIcon").GetComponent<Image>();
         originalSpeed = PlayerController.moveSpeed;
+        iconOgColor = boostIconUI.color;
 
         // band-aid fix because the object needs to exist for the boost to take action
         // and go away properly
@@ -65,7 +70,7 @@ public class SpeedLoot : MonoBehaviour
     {
         // Activate speed boost
         SpeedLoot.boostActive = true;
-
+        boostIconUI.color = new Color(boostIconUI.color.r, boostIconUI.color.g, boostIconUI.color.b, 1f);
 
         // Allow speed boost for boostDuration seconds
         yield return new WaitForSeconds(SpeedLoot.boostDuration);
@@ -73,6 +78,7 @@ public class SpeedLoot : MonoBehaviour
         PlayerController.moveSpeed = originalSpeed;
         // De-activate speed boost
         SpeedLoot.boostActive = false;
+        boostIconUI.color = iconOgColor;
 
     }
 }

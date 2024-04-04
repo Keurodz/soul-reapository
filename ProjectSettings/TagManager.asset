@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - EnemyWanderpoint
   - Pupil
+  - SpeedIcon
+  - ShieldIcon
   layers:
   - Default
   - TransparentFX
