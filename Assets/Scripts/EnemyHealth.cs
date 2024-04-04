@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public Slider healthSlider;
 
     public int currentHealth;
+    public int damageAmt;
 
     private void Awake()
     {
@@ -37,20 +38,12 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void Heal(int healthAmt)
+    private void OnTriggerEnter(Collider other)
     {
-        if (currentHealth < 100)
+        if (other.CompareTag("ReaperProjectile"))
         {
-            currentHealth += healthAmt;
-            healthSlider.value = Mathf.Clamp(currentHealth, 0, 100);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-            TakeDamage(10);
+            TakeDamage(damageAmt);
+            print("Angel Hit");
         }
     }
 }

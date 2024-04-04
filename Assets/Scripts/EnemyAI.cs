@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     public float chaseDistance = 10;
     public float attackDistance = 2;
     public GameObject player;
-    public GameObject spellProjectile;
+    public GameObject[] spellProjectiles;
     public GameObject enemyEye;
     public float shootRate = 2f;
     public GameObject deadVFX;
@@ -31,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     float distanceToPlayer;
     float elapsedTime = 0;
     bool isDead;
+    Transform deadTransform;
 
     EnemyHealth enemyHealth;
     int health;
@@ -167,10 +168,11 @@ public class EnemyAI : MonoBehaviour
     void UpdateDeadState()
     {
         // anim.SetInteger("animState", 4);
-        //deadTransform = gameObject.transform;
+        deadTransform = gameObject.transform;
         isDead = true;
+        print("Angel is dead");
 
-        Destroy(gameObject, 3);
+        Destroy(gameObject);
     }
 
     void FindNextPoint()
@@ -206,12 +208,16 @@ public class EnemyAI : MonoBehaviour
 
     void SpellCasting()
     {
+        int randProjectileIndex = Random.Range(0, spellProjectiles.Length);
+
+        GameObject spellProjectile = spellProjectiles[randProjectileIndex];
+
         Instantiate(spellProjectile, enemyEye.transform.position, enemyEye.transform.rotation);
     }
 
     private void OnDestroy()
     {
-        //Instantiate(deadVFX, deadTransform.position, deadTransform.rotation);
+        Instantiate(deadVFX, deadTransform.position, deadTransform.rotation);
     }
 
     bool CanSeePlayer()
