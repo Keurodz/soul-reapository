@@ -6,17 +6,10 @@ public class AngelHit : MonoBehaviour
 {
     public GameObject angelDeath;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject healthLoot;
+    public GameObject speedLoot;
+    public GameObject shieldLoot;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,6 +26,29 @@ public class AngelHit : MonoBehaviour
 
         // destroy angel
         gameObject.SetActive(false);
+
+        // 50% chance to spawn a random loot (3 different types, 33% each)
+        float coinFlip = Random.value;
+        if (coinFlip < 0.5)
+        {
+            float lootType = Random.value;
+            if (lootType <= 0.33)
+            {
+                // spawn health drop
+                Instantiate(healthLoot, transform.position, transform.rotation);
+            }
+            else if (lootType >= 0.67)
+            {
+                // spawn speed boost
+                Instantiate(speedLoot, transform.position, transform.rotation);
+            }
+            else
+            {
+                // spawn 1-hit shield
+                Instantiate(shieldLoot, transform.position, transform.rotation);
+            }
+        }
+
         Destroy(gameObject);
     }
 }

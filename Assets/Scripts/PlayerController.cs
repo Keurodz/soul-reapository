@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 8;
+    
+    public static float moveSpeed = 8;
     public float jumpHeight = 3;
     public float gravity = 9.81f;
     public float airControl = 10;
+
 
     CharacterController controller;
     Vector3 input, moveDirection;
@@ -15,7 +17,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>(); 
     }
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(moveDirection * Time.deltaTime);
 
-
     }
+
+    
 }

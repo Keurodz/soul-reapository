@@ -40,20 +40,43 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmt)
     {
-        if (playerCanTakeDamage && currentHealth > 0)
+        // if shield power-up is not active and player is taking damage
+        if (!ShieldLoot.shieldActive && damageAmt > 0)
+        {
+            if (playerCanTakeDamage && currentHealth > 0)
+            {
+                currentHealth -= damageAmt;
+                healthSlider.value = currentHealth;
+                healthText.text = currentHealth.ToString();
+
+                StartCoroutine(InvincibilityFrames());
+            }
+
+            if (currentHealth <= 0)
+            {
+                PlayerDies();
+                levelManager.LevelLost();
+            }
+        }
+        // if shield power-up is active and player is going to take damage
+        else if (damageAmt > 0)
+        {
+            // should probably add an SFX when losing shield here
+            Debug.Log("Shield broken");
+
+
+            // de-activate shield if it was active and give player i-frames
+            ShieldLoot.shieldActive = false;
+            StartCoroutine(InvincibilityFrames());
+        }
+        // player is being healed
+        else
         {
             currentHealth -= damageAmt;
             healthSlider.value = currentHealth;
             healthText.text = currentHealth.ToString();
-
-            StartCoroutine(InvincibilityFrames());
         }
-
-        if (currentHealth <= 0)
-        {
-            PlayerDies();
-            levelManager.LevelLost();
-        }
+        
     }
 
     private IEnumerator InvincibilityFrames()
@@ -85,6 +108,10 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth < startingHealth)
         {
             currentHealth += healthAmt;
+
+            // need to clamp HP (text?) so it can't go over 100 when healing
+
+
             healthSlider.value = Mathf.Clamp(currentHealth, 0, startingHealth);
         }
     }
