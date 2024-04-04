@@ -22,6 +22,7 @@ public class SpiritHit : MonoBehaviour
     {
         if (other.CompareTag("SwipeAttack"))
         {
+            LevelManager.spiritsCollected++;
             DestroySpirit();
         }
     }
