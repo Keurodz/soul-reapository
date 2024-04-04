@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
             // Make the shield icon transparent to indicate the shield is off
             if (ShieldLoot.shieldIconUI != null)
             {
-                ShieldLoot.shieldIconUI.color = new Color(ShieldLoot.shieldIconUI.color.r, ShieldLoot.shieldIconUI.color.g, ShieldLoot.shieldIconUI.color.b, 0.235f); // Set alpha to 0.5 or any desired value
+                ShieldLoot.shieldIconUI.color = new Color(ShieldLoot.shieldIconUI.color.r, ShieldLoot.shieldIconUI.color.g, ShieldLoot.shieldIconUI.color.b, 0.25f); // Set alpha to 0.5 or any desired value
             }
 
             StartCoroutine(InvincibilityFrames());
