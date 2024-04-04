@@ -10,7 +10,18 @@ public class PlayerHealth : MonoBehaviour
     public Text healthText;
 
     int currentHealth;
-    //LevelManager levelManager;
+    LevelManager levelManager;
+
+    static public bool playerCanTakeDamage = true;
+    [SerializeField]
+    private float iFramesDuration = 1;
+
+    // I want to make the scythe opaque when invincible!!
+    /**
+    public GameObject scythe;
+    Renderer scytheRenderer;
+    Color scytheColor;
+    **/
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = startingHealth;
         healthSlider.value = currentHealth;
         healthText.text = currentHealth.ToString();
-        //levelManager = GameObject.FindObjectOfType<LevelManager>();
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -29,18 +40,38 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmt)
     {
-        if (currentHealth > 0)
+        if (playerCanTakeDamage && currentHealth > 0)
         {
             currentHealth -= damageAmt;
             healthSlider.value = currentHealth;
             healthText.text = currentHealth.ToString();
+
+            StartCoroutine(InvincibilityFrames());
         }
 
         if (currentHealth <= 0)
         {
             PlayerDies();
-            //levelManager.LevelLost();
+            levelManager.LevelLost();
         }
+    }
+
+    private IEnumerator InvincibilityFrames()
+    {
+        // Make player invincible
+        playerCanTakeDamage = false;
+
+        // scytheColor.a = 0.25f;
+        // scytheRenderer.material.color = scytheColor;
+
+        // Allow iFramesDuration seconds of invincibility
+        yield return new WaitForSeconds(iFramesDuration);
+
+        // Allow player to be hit again
+        playerCanTakeDamage = true;
+
+        // scytheColor.a = 1f;
+        // scytheRenderer.material.color = scytheColor;
     }
 
     void PlayerDies()

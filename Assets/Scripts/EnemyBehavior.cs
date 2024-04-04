@@ -9,6 +9,8 @@ public class EnemyBehavior : MonoBehaviour
 
     public float moveSpeed = 1;
 
+    public int damageAmount = 20;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +27,15 @@ public class EnemyBehavior : MonoBehaviour
 
         transform.position = Vector3.MoveTowards
             (transform.position, player.position, moveSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // apply damage
+            var playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damageAmount);
+        }
     }
 }
