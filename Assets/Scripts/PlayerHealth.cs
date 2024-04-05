@@ -79,11 +79,11 @@ public class PlayerHealth : MonoBehaviour
         // player is being healed
         else
         {
-            currentHealth -= damageAmt;
-            healthSlider.value = currentHealth;
+            currentHealth = Mathf.Clamp(currentHealth - damageAmt, 0, startingHealth);
+            healthSlider.value = Mathf.Clamp(currentHealth, 0, startingHealth);
             healthText.text = currentHealth.ToString();
         }
-        
+
     }
 
     private IEnumerator InvincibilityFrames()
