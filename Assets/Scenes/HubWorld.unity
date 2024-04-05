@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.77327305, g: 0.61970055, b: 0.5630606, a: 1}
+  m_IndirectSpecularColor: {r: 0.77369267, g: 0.61882204, b: 0.56189907, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9249,7 +9249,7 @@ PrefabInstance:
       objectReference: {fileID: 1561081585}
     - target: {fileID: 8060227574618448936, guid: 5d27866b7a9a740c5acee36d0e3ac264, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8060227574618448936, guid: 5d27866b7a9a740c5acee36d0e3ac264, type: 3}
       propertyPath: m_LocalScale.x
@@ -19375,7 +19375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c04a98052684652a3d7317c2fdfdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Level 2
+  levelToLoad: Prototype Scene 1
   rotationSpeed: 30
   bobSpeed: 2
   bobHeight: 0.1
