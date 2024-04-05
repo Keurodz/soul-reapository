@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e47c674599ded489a4eaa10d49ef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootSFX: {fileID: 8300000, guid: 42f67ca378c13ba449c732b824c581ba, type: 3}
+  lootSFX: {fileID: 8300000, guid: 83192a59382b58f479424b3a9f451fb6, type: 3}
 --- !u!64 &1910970988588878367
 MeshCollider:
   m_ObjectHideFlags: 0

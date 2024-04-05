@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 2
-  lootSFX: {fileID: 8300000, guid: 9a9a7d87c9df66a42bf94a83999c2b6c, type: 3}
+  lootSFX: {fileID: 8300000, guid: 4d2b25771548dae4b97ad8723b7365f9, type: 3}
   boostIconUI: {fileID: 0}
 --- !u!114 &4125473088183399463
 MonoBehaviour:
