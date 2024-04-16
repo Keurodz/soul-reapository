@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private float iFramesDuration = 1;
 
-    // I want to make the scythe opaque when invincible!!
+    // I want to make the scythe transparent when invincible!!
     /**
     public GameObject scythe;
     Renderer scytheRenderer;
@@ -45,8 +45,8 @@ public class PlayerHealth : MonoBehaviour
         {
             if (playerCanTakeDamage && currentHealth > 0)
             {
-                currentHealth -= damageAmt;
-                healthSlider.value = currentHealth;
+                currentHealth = Mathf.Clamp(currentHealth - damageAmt, 0, startingHealth);
+                healthSlider.value = Mathf.Clamp(currentHealth, 0, startingHealth);
                 healthText.text = currentHealth.ToString();
 
                 StartCoroutine(InvincibilityFrames());
