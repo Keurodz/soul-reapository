@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
     }
 
     public void ExitGame() {
+        SaveTime();
         Application.Quit();
+    }
+
+     public void SaveTime() {
+        PlayerPrefs.SetFloat("Playtime", (Mathf.Round((PlayerPrefs.GetFloat("Playtime", 0) + Time.time) * 100)) / 100.0f);
     }
 }
