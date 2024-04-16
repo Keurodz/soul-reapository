@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AngelHit : MonoBehaviour
 {
@@ -31,22 +32,50 @@ public class AngelHit : MonoBehaviour
         float coinFlip = Random.value;
         if (coinFlip < 0.5)
         {
+
+            // SceneManager.GetActiveScene().name
+            // Checking here for the scene names for which power-ups are allowed to drop.
             float lootType = Random.value;
-            if (lootType <= 0.33)
+            if (SceneManager.GetActiveScene().name == "Level 1")
             {
-                // spawn health drop
-                Instantiate(healthLoot, transform.position, transform.rotation);
+                if (lootType <= 0.33)
+                {
+                    // spawn health drop
+                    Instantiate(healthLoot, transform.position, transform.rotation);
+                }
             }
-            else if (lootType >= 0.67)
+            else if (SceneManager.GetActiveScene().name == "Level 2")
             {
-                // spawn speed boost
-                Instantiate(speedLoot, transform.position, transform.rotation);
-            }
-            else
+                if (lootType <= 0.33)
+                {
+                    // spawn health drop
+                    Instantiate(healthLoot, transform.position, transform.rotation);
+                }
+                else if (lootType >= 0.67)
+                {
+                    // spawn speed boost
+                    Instantiate(speedLoot, transform.position, transform.rotation);
+                }
+            } 
+            else if (SceneManager.GetActiveScene().name == "Level 3")
             {
-                // spawn 1-hit shield
-                Instantiate(shieldLoot, transform.position, transform.rotation);
+                if (lootType <= 0.33)
+                {
+                    // spawn health drop
+                    Instantiate(healthLoot, transform.position, transform.rotation);
+                }
+                else if (lootType >= 0.67)
+                {
+                    // spawn speed boost
+                    Instantiate(speedLoot, transform.position, transform.rotation);
+                }
+                else
+                {
+                    // spawn 1-hit shield
+                    Instantiate(shieldLoot, transform.position, transform.rotation);
+                }
             }
+            
         }
 
         Destroy(gameObject);

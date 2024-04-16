@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.77369267, g: 0.61882204, b: 0.56189907, a: 1}
+  m_IndirectSpecularColor: {r: 0.77327305, g: 0.61970055, b: 0.5630606, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4806271460672573367, guid: 65ef7e6caf3b86f41b94f23e79d94723, type: 3}
       propertyPath: m_Name
-      value: Environment 1
+      value: Town
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65ef7e6caf3b86f41b94f23e79d94723, type: 3}
@@ -10819,7 +10819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c04a98052684652a3d7317c2fdfdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Prototype Scene
+  levelToLoad: Level 1
   rotationSpeed: 30
   bobSpeed: 2
   bobHeight: 0.1
@@ -19375,7 +19375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c04a98052684652a3d7317c2fdfdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Prototype Scene 1
+  levelToLoad: Level 2
   rotationSpeed: 30
   bobSpeed: 2
   bobHeight: 0.1
