@@ -20,10 +20,13 @@ public class EnemyAI : MonoBehaviour
     public float attackDistance = 2;
     public GameObject player;
     public GameObject[] spellProjectiles;
-    public GameObject enemyEye;
+    public GameObject lazerSpawn;
     public float shootRate = 2f;
     public GameObject deadVFX;
     public float fov = 45f;
+    public Material enemyEyeMaterial;
+    public Color idleEyeColor;
+    public Color chasingEyeColor;
 
     GameObject[] wanderpoints;
     Vector3 nextDestination;
@@ -39,6 +42,7 @@ public class EnemyAI : MonoBehaviour
     int currentDestinationIndex = 0;
 
     NavMeshAgent agent;
+    
     
 
     // Start is called before the first frame update
@@ -91,6 +95,8 @@ public class EnemyAI : MonoBehaviour
 
         currentState = FSMStates.Patrol;
         FindNextPoint();
+
+        enemyEyeMaterial.EnableKeyword("_EMISSION");
     }
 
     void UpdatePatrolState()
@@ -102,6 +108,11 @@ public class EnemyAI : MonoBehaviour
         agent.stoppingDistance = 0;
 
         agent.speed = enemySpeed - (enemySpeed * 0.2f);
+
+        enemyEyeMaterial.SetColor("_EmissionColor", Color.Lerp(
+            enemyEyeMaterial.GetColor("_EmissionColor"),
+            idleEyeColor,
+            Time.deltaTime * 3));
 
         if (Vector3.Distance(transform.position, nextDestination) < 1)
         {
@@ -128,6 +139,11 @@ public class EnemyAI : MonoBehaviour
 
         // anim.SetInteger("animState", 2);
 
+        enemyEyeMaterial.SetColor("_EmissionColor", Color.Lerp(
+            enemyEyeMaterial.GetColor("_EmissionColor"),
+            chasingEyeColor,
+            Time.deltaTime * 3));
+
         if (distanceToPlayer <= attackDistance)
         {
             currentState = FSMStates.Attack;
@@ -145,6 +161,11 @@ public class EnemyAI : MonoBehaviour
     void UpdateAttackState()
     {
         nextDestination = player.transform.position;
+
+        enemyEyeMaterial.SetColor("_EmissionColor", Color.Lerp(
+            enemyEyeMaterial.GetColor("_EmissionColor"),
+            chasingEyeColor, 
+            Time.deltaTime * 3));
 
         if (distanceToPlayer <= attackDistance)
         {
@@ -212,7 +233,7 @@ public class EnemyAI : MonoBehaviour
 
         GameObject spellProjectile = spellProjectiles[randProjectileIndex];
 
-        Instantiate(spellProjectile, enemyEye.transform.position, enemyEye.transform.rotation);
+        Instantiate(spellProjectile, lazerSpawn.transform.position, lazerSpawn.transform.rotation);
     }
 
     private void OnDestroy()
@@ -224,11 +245,11 @@ public class EnemyAI : MonoBehaviour
     {
         RaycastHit hit;
 
-        Vector3 directionToPlayer = player.transform.position - enemyEye.transform.position;
+        Vector3 directionToPlayer = player.transform.position - lazerSpawn.transform.position;
 
-        if (Vector3.Angle(directionToPlayer, enemyEye.transform.forward) <= fov)
+        if (Vector3.Angle(directionToPlayer, lazerSpawn.transform.forward) <= fov)
         {
-            if (Physics.Raycast(enemyEye.transform.position, directionToPlayer, out hit, chaseDistance))
+            if (Physics.Raycast(lazerSpawn.transform.position, directionToPlayer, out hit, chaseDistance))
             {
                 if (hit.collider.CompareTag("Player"))
                 {
@@ -253,13 +274,13 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
 
-        Vector3 frontRayPoint = enemyEye.transform.position + (enemyEye.transform.forward * chaseDistance);
+        Vector3 frontRayPoint = lazerSpawn.transform.position + (lazerSpawn.transform.forward * chaseDistance);
         Vector3 leftRayPoint = Quaternion.Euler(0, fov * 0.5f, 0) * frontRayPoint;
         Vector3 rightRayPoint = Quaternion.Euler(0, -fov * 0.5f, 0) * frontRayPoint;
 
-        Debug.DrawLine(enemyEye.transform.position, frontRayPoint, Color.cyan);
-        Debug.DrawLine(enemyEye.transform.position, rightRayPoint, Color.magenta);
-        Debug.DrawLine(enemyEye.transform.position, leftRayPoint, Color.yellow);
+        Debug.DrawLine(lazerSpawn.transform.position, frontRayPoint, Color.cyan);
+        Debug.DrawLine(lazerSpawn.transform.position, rightRayPoint, Color.magenta);
+        Debug.DrawLine(lazerSpawn.transform.position, leftRayPoint, Color.yellow);
 
     }
 
