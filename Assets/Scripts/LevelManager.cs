@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public static bool isGameOver = false;
 
     public string nextLevel;
+    public Text levelText;
 
     float spiritCount;
     static public float spiritsCollected;
@@ -27,6 +28,7 @@ public class LevelManager : MonoBehaviour
     {
         PlayerHealth.playerCanTakeDamage = true;
         isGameOver = false;
+        Invoke("DisableText", 5f);
 
         // count the spirits in the level for score-keeping 
         GameObject[] spirits = GameObject.FindGameObjectsWithTag("Spirit");
@@ -98,5 +100,9 @@ public class LevelManager : MonoBehaviour
     void LoadCurrentLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void DisableText() {
+        levelText.enabled = false;
     }
 }
