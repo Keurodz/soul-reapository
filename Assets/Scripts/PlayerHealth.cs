@@ -17,11 +17,11 @@ public class PlayerHealth : MonoBehaviour
     private float iFramesDuration = 1;
 
     // I want to make the scythe transparent when invincible!!
-    /**
+    
     public GameObject scythe;
     Renderer scytheRenderer;
     Color scytheColor;
-    **/
+    
 
     // Start is called before the first frame update
     void Start()
@@ -91,8 +91,8 @@ public class PlayerHealth : MonoBehaviour
         // Make player invincible
         playerCanTakeDamage = false;
 
-        // scytheColor.a = 0.25f;
-        // scytheRenderer.material.color = scytheColor;
+        scytheColor.a = 0.25f;
+        scytheRenderer.material.color = scytheColor;
 
         // Allow iFramesDuration seconds of invincibility
         yield return new WaitForSeconds(iFramesDuration);
@@ -100,8 +100,8 @@ public class PlayerHealth : MonoBehaviour
         // Allow player to be hit again
         playerCanTakeDamage = true;
 
-        // scytheColor.a = 1f;
-        // scytheRenderer.material.color = scytheColor;
+        scytheColor.a = 1f;
+        scytheRenderer.material.color = scytheColor;
     }
 
     void PlayerDies()
