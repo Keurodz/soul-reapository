@@ -81,6 +81,7 @@ public class PlayerHealth : MonoBehaviour
         // player is being healed
         else
         {
+            // the damage amount in this part will always be negative so it will actually heal the player
             currentHealth = Mathf.Clamp(currentHealth - damageAmt, 0, startingHealth);
             healthSlider.value = Mathf.Clamp(currentHealth, 0, startingHealth);
             healthText.text = currentHealth.ToString();
@@ -112,16 +113,4 @@ public class PlayerHealth : MonoBehaviour
         transform.Rotate(-90, 0, 0, Space.Self);
     }
 
-    public void Heal(int healthAmt)
-    {
-        if (currentHealth < startingHealth)
-        {
-            currentHealth += healthAmt;
-
-            // need to clamp HP (text?) so it can't go over 100 when healing
-
-
-            healthSlider.value = Mathf.Clamp(currentHealth, 0, startingHealth);
-        }
-    }
 }
