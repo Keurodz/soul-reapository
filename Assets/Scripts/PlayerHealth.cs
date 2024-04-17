@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int startingHealth = 100;
     public Slider healthSlider;
     public Text healthText;
+    public AudioClip hitSFX;
 
     int currentHealth;
     LevelManager levelManager;
@@ -45,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (playerCanTakeDamage && currentHealth > 0)
             {
+                AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position);
                 currentHealth = Mathf.Clamp(currentHealth - damageAmt, 0, startingHealth);
                 healthSlider.value = Mathf.Clamp(currentHealth, 0, startingHealth);
                 healthText.text = currentHealth.ToString();
