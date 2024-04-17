@@ -29,10 +29,9 @@ public class SpiritHit : MonoBehaviour
 
     void DestroySpirit()
     {
-        //Increment points / do something with level manager
 
         // spawn death particles
-        //Instantiate(spiritDeath, transform.position, transform.rotation);
+        Instantiate(spiritDeath, transform.position, transform.rotation);
 
         // destroy angel
         gameObject.SetActive(false);
