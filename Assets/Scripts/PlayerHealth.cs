@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (playerCanTakeDamage && currentHealth > 0)
             {
-                AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position);
+                AudioSource.PlayClipAtPoint(hitSFX, transform.position);
                 currentHealth = Mathf.Clamp(currentHealth - damageAmt, 0, startingHealth);
                 healthSlider.value = Mathf.Clamp(currentHealth, 0, startingHealth);
                 healthText.text = currentHealth.ToString();
@@ -93,8 +93,8 @@ public class PlayerHealth : MonoBehaviour
         // Make player invincible
         playerCanTakeDamage = false;
 
-        scytheColor.a = 0.25f;
-        scytheRenderer.material.color = scytheColor;
+        //scytheColor.a = 0.25f;
+        //scytheRenderer.material.color = scytheColor;
 
         // Allow iFramesDuration seconds of invincibility
         yield return new WaitForSeconds(iFramesDuration);
@@ -102,8 +102,8 @@ public class PlayerHealth : MonoBehaviour
         // Allow player to be hit again
         playerCanTakeDamage = true;
 
-        scytheColor.a = 1f;
-        scytheRenderer.material.color = scytheColor;
+        //scytheColor.a = 1f;
+        //scytheRenderer.material.color = scytheColor;
     }
 
     void PlayerDies()

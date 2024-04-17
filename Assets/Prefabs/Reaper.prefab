@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 368049916}
+  - component: {fileID: 368049915}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -99,6 +101,122 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd89a24d5ca40f42b119ca29b2583ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &368049916
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 67dcd3886437bb849affb998dfc9af7b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &368049915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86bc6411d9ce8c74cabd77f3ee66ebdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6757870564496360512, guid: 1f119d9b4846800409f96539771db295, type: 3}
+  projectileSpeed: 50
+  swipeSFX: {fileID: 8300000, guid: cfd060da8f8e6e54caf24c8a9efe9f0d, type: 3}
+  shootSFX: {fileID: 0}
+  swingRadius: {fileID: 3688165360191414621}
+  reticleImage: {fileID: 0}
+  angelColor: {r: 1, g: 0, b: 0, a: 0.6039216}
+  spiritColor: {r: 0.42830187, g: 0.9220265, b: 1, a: 0.6666667}
 --- !u!1 &271190920462682347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,7 +5100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &973181468084384988
 Transform:
   m_ObjectHideFlags: 0
@@ -73137,7 +73255,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1180
+  m_VersionIndex: 1186
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -74024,7 +74142,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6642
+  m_VersionIndex: 6654
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -108221,8 +108339,7 @@ GameObject:
   - component: {fileID: 182818926}
   - component: {fileID: 182818931}
   - component: {fileID: 182818924}
-  - component: {fileID: 1242586369336949834}
-  - component: {fileID: 5519149536455221082}
+  - component: {fileID: 1257386013}
   m_Layer: 0
   m_Name: Reaper
   m_TagString: Player
@@ -108336,27 +108453,7 @@ MonoBehaviour:
   jumpHeight: 3
   gravity: 9.81
   airControl: 10
---- !u!114 &1242586369336949834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735205623925879604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86bc6411d9ce8c74cabd77f3ee66ebdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 50
-  swipeSFX: {fileID: 0}
-  shootSFX: {fileID: 0}
-  swingRadius: {fileID: 0}
-  reticleImage: {fileID: 0}
-  angelColor: {r: 0, g: 0, b: 0, a: 0}
-  spiritColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &5519149536455221082
+--- !u!114 &1257386013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108373,7 +108470,7 @@ MonoBehaviour:
   healthText: {fileID: 0}
   hitSFX: {fileID: 8300000, guid: b18dc5b3dd16d994d8755dc24bd524aa, type: 3}
   iFramesDuration: 1
-  scythe: {fileID: 0}
+  scythe: {fileID: 4811420391940341941}
 --- !u!1 &7857600128918512649
 GameObject:
   m_ObjectHideFlags: 0
@@ -110641,7 +110738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2453124123886368053, guid: eb1deb9bd67e1a245bd46318af4ad979, type: 3}
       propertyPath: m_VersionIndex
-      value: 2792
+      value: 2813
       objectReference: {fileID: 0}
     - target: {fileID: 5562724192270647350, guid: eb1deb9bd67e1a245bd46318af4ad979, type: 3}
       propertyPath: m_Name
@@ -110661,7 +110758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7722350119466008360, guid: eb1deb9bd67e1a245bd46318af4ad979, type: 3}
       propertyPath: m_VersionIndex
-      value: 5404
+      value: 5431
       objectReference: {fileID: 0}
     - target: {fileID: 7722350119466008360, guid: eb1deb9bd67e1a245bd46318af4ad979, type: 3}
       propertyPath: m_Tangents.Array.size
@@ -114133,6 +114230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb1deb9bd67e1a245bd46318af4ad979, type: 3}
+--- !u!1 &4811420391940341941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5562724192270647350, guid: eb1deb9bd67e1a245bd46318af4ad979, type: 3}
+  m_PrefabInstance: {fileID: 1150490985188245635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7202412383893216075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7783142181064874952, guid: eb1deb9bd67e1a245bd46318af4ad979, type: 3}
