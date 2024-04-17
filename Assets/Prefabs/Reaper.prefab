@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd89a24d5ca40f42b119ca29b2583ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 150
 --- !u!1 &271190920462682347
 GameObject:
   m_ObjectHideFlags: 0
@@ -108222,8 +108221,8 @@ GameObject:
   - component: {fileID: 182818926}
   - component: {fileID: 182818931}
   - component: {fileID: 182818924}
-  - component: {fileID: 182818932}
   - component: {fileID: 1242586369336949834}
+  - component: {fileID: 5519149536455221082}
   m_Layer: 0
   m_Name: Reaper
   m_TagString: Player
@@ -108334,23 +108333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79311e0435c139c4d8bc126aae5d8ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
   jumpHeight: 3
   gravity: 9.81
   airControl: 10
---- !u!114 &182818932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735205623925879604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1568a23e34cfb294db39d4f60247d9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeSFX: {fileID: 8300000, guid: cfd060da8f8e6e54caf24c8a9efe9f0d, type: 3}
 --- !u!114 &1242586369336949834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108371,6 +108356,24 @@ MonoBehaviour:
   reticleImage: {fileID: 0}
   angelColor: {r: 0, g: 0, b: 0, a: 0}
   spiritColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &5519149536455221082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735205623925879604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ad149e2a9ccb2449997cded7aea518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  healthSlider: {fileID: 0}
+  healthText: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b18dc5b3dd16d994d8755dc24bd524aa, type: 3}
+  iFramesDuration: 1
+  scythe: {fileID: 0}
 --- !u!1 &7857600128918512649
 GameObject:
   m_ObjectHideFlags: 0
